@@ -1,0 +1,15 @@
+{
+  "string": [
+    {
+      "name": "default_prompt_view_default_spacing",
+      "value": "16dp"
+    },{
+      "name": "default_prompt_view_default_text_size",
+      "value": "18sp"
+    },{
+      "name": "default_prompt_view_default_button_height",
+      "value": "48dp"
+    }
+
+  ]
+}

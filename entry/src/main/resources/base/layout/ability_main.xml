@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="vertical">
+        <com.example.amplify.lib.prompt.DefaultLayoutPromptView
+            ohos:id="$+id:default_layout_prompt_view_no_customization"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:bottom_margin="16fp"/>
+
+        <com.example.amplify.lib.prompt.DefaultLayoutPromptView
+            ohos:id="$+id:default_layout_prompt_view_code_config"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:bottom_margin="16fp"/>
+
+
+    </DirectionalLayout>
+
+</DirectionalLayout>
+
+

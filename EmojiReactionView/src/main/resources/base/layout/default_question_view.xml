@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:bottom_padding="16fp"
+    ohos:orientation="vertical">
+        <Text
+            ohos:id="$+id:amplify_title_text_view"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:left_margin="16fp"
+            ohos:right_margin="16fp"
+            ohos:top_margin="16fp"
+            ohos:layout_alignment="center"
+            ohos:text_size="18fp"
+            />
+        <Text
+            ohos:id="$+id:amplify_subtitle_text_view"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:left_margin="16fp"
+            ohos:right_margin="16fp"
+            ohos:top_margin="16fp"
+            ohos:layout_alignment="center"
+            ohos:text_size="18fp"
+            />
+        <DirectionalLayout
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:margin ="16fp"
+            ohos:orientation="horizontal">
+            <Text
+                ohos:id="$+id:amplify_negative_button"
+                ohos:width="0fp"
+                ohos:height="match_content"
+                ohos:weight="1"
+                ohos:min_height="48fp"
+                ohos:layout_alignment="center"
+                ohos:text_size="18fp"/>
+            <Text
+                ohos:id="$+id:amplify_positive_button"
+                ohos:width="0fp"
+                ohos:height="match_content"
+                ohos:weight="1"
+                ohos:min_height="48fp"
+                ohos:layout_alignment="center"
+                ohos:text_size="18fp" />
+            </DirectionalLayout>
+
+</DirectionalLayout>

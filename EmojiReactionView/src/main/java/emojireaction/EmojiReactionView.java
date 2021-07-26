@@ -144,7 +144,7 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
     // Variable to count number of emojis started disappearing
     private int fading = 0;
     // is the emojis started disappearing
-    private boolean startFading = false;
+    private boolean startFading = false;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 
 
     public EmojiReactionView(Context context) throws NotExistException, WrongTypeException, IOException {

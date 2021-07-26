@@ -23,6 +23,7 @@ import android.graphics.Rect;
 import android.widget.ImageView;
 */
 
+import com.example.amplify.ResourceTable;
 import ohos.agp.animation.Animator;
 import ohos.agp.animation.Animator.StateChangedListener;
 import ohos.agp.animation.AnimatorValue;
@@ -35,6 +36,7 @@ import ohos.agp.utils.RectFloat;
 import ohos.app.Context;
 import ohos.global.resource.NotExistException;
 import ohos.global.resource.WrongTypeException;
+import ohos.global.resource.solidxml.TypedAttribute;
 import ohos.media.image.PixelMap;
 import ohos.media.image.common.Size;
 
@@ -162,75 +164,16 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
         init();
     }
 
-    final void initBaseXMLAttrs(Context context, AttrSet attrs) {
+    final void initBaseXMLAttrs(Context context, AttrSet attrSet) throws NotExistException, WrongTypeException, IOException {
 
-        /*
-        final TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.EmojiReactionView);
-        final int N = arr.getIndexCount();
+        final int N = attrSet.getLength();
         for (int i = 0; i < N; ++i) {
-            int attr = arr.getIndex(i);
+            Attr attr = attrSet.getAttr(i).get();
+            TypedAttribute typedAttribute = (TypedAttribute) attr;
 
-            if (attr == R.styleable.EmojiReactionView_emojis) {
-                final TypedArray resourceArray = context.getResources().obtainTypedArray(arr.getResourceId(R.styleable.EmojiReactionView_emojis, 0));
-                // Get emojis id from attribute and store it in arraylist
-                for (int j = 0; j < resourceArray.length(); j++) {
-                    emojiId.add(resourceArray.getResourceId(j, 0));
-                }
-                numberOfEmojis = emojiId.size();
-                resourceArray.recycle();
-
-            } else if (attr == R.styleable.EmojiReactionView_set_emoji) {
-                clickedEmojiNumber = arr.getInt(attr, clickedEmojiNumber);
-            } else if (attr == R.styleable.EmojiReactionView_home_Center_X) {
-                homeCenter[0] = arr.getDimensionPixelSize(attr, homeCenter[0]);
-
-            } else if (attr == R.styleable.EmojiReactionView_home_Center_Y) {
-                homeCenterYGiven = arr.getDimensionPixelSize(attr, -1);
-
-            } else if (attr == R.styleable.EmojiReactionView_home_side) {
-                homeSide = arr.getDimensionPixelSize(attr, homeSide);
-
-            } else if (attr == R.styleable.EmojiReactionView_panel_center_X) {
-                if (arr.peekValue(attr).type == TYPE_DIMENSION)
-                    panelCentreGiven[0] = arr.getDimensionPixelSize(attr, -2);
-                else {
-                    panelCentreGiven[0] = checkFraction(arr.getFraction(attr, -1, -1, -2));
-                }
-            } else if (attr == R.styleable.EmojiReactionView_panel_center_Y) {
-                if (arr.peekValue(attr).type == TYPE_DIMENSION)
-                    panelCentreGiven[1] = arr.getDimensionPixelSize(attr, -2);
-                else
-                    panelCentreGiven[1] = checkFraction(arr.getFraction(attr, -1, -1, -2));
-            } else if (attr == R.styleable.EmojiReactionView_panel_radius) {
-                panelRadiusGiven = arr.getDimensionPixelSize(attr, -1);
-
-            } else if (attr == R.styleable.EmojiReactionView_panel_emoji_side) {
-                panelEmojiSide = arr.getDimensionPixelSize(attr, panelEmojiSide);
-
-            } else if (attr == R.styleable.EmojiReactionView_emojis_rising_height) {
-                emojisRisingHeightGiven = checkFraction(arr.getFraction(attr, -1, -1, -2));
-            } else if (attr == R.styleable.EmojiReactionView_emojis_rising_speed) {
-                emojisRisingSpeed = arr.getDimensionPixelSize(attr, -1);
-
-            } else if (attr == R.styleable.EmojiReactionView_emojis_rising_number) {
-                numberOfRisers = arr.getInt(attr, numberOfRisers);
-            }
-        }
-        if (clickedEmojiNumber >= numberOfEmojis || clickedEmojiNumber < -1) {
-            throw new IllegalArgumentException("set_emoji can't be more than number of emojis!");
-        }
-         arr.recycle();
-        */
-
-       // final TypedArray arr = context.obtainStyledAttributes(attrs, R.styleable.EmojiReactionView);
-
-        final int N = attrs.getLength();
-        for (int i = 0; i < N; ++i) {
-            Attr attr = attrs.getAttr(i).get();
-
-            if (attr == R.styleable.EmojiReactionView_emojis) {
+            if (attr.getName().equals("emojis")) {
                 final TypedArray resourceArray = context.getResources().obtainTypedArray(
-                        arr.getResourceId(R.styleable.EmojiReactionView_emojis, 0));
+                        typedArray.getResourceId(R.styleable.EmojiReactionView_emojis, 0));
                 // Get emojis id from attribute and store it in arraylist
                 for (int j = 0; j < resourceArray.length(); j++) {
                     emojiId.add(resourceArray.getResourceId(j, 0));
@@ -238,55 +181,51 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
                 numberOfEmojis = emojiId.size();
                 resourceArray.recycle();
 
-            //} else if (attr == R.styleable.EmojiReactionView_set_emoji) {
-            //    clickedEmojiNumber = arr.getInt(attr, clickedEmojiNumber);
+            } else if (attr.getName().equals("set_emoji")) {
+                clickedEmojiNumber = typedAttribute.getIntegerValue();
             } else if (attr.getIntegerValue() != 0) {
-                clickedEmojiNumber = attr.getIntegerValue();
+                clickedEmojiNumber = typedAttribute.getIntegerValue();
 
-            //} else if (attr == R.styleable.EmojiReactionView_home_Center_X) {
-            //    homeCenter[0] = arr.getDimensionPixelSize(attr, homeCenter[0]);
+            } else if (attr.getName().equals("home_Center_X")) {
+                homeCenter[0] = typedAttribute.getPixelValue(false);
             } else if (attr == R.styleable.EmojiReactionView_home_Center_X) {
-                homeCenter[0] = arr.getDimensionPixelSize(attr, homeCenter[0]);
+                homeCenter[0] = typedAttribute.getPixelValue(false);
 
             } else if (attr == R.styleable.EmojiReactionView_home_Center_Y) {
-                homeCenterYGiven = arr.getDimensionPixelSize(attr, -1);
+                homeCenterYGiven = typedAttribute.getPixelValue(false);
 
             } else if (attr == R.styleable.EmojiReactionView_home_side) {
-                homeSide = arr.getDimensionPixelSize(attr, homeSide);
+                homeSide = typedAttribute.getPixelValue(false);
 
             } else if (attr == R.styleable.EmojiReactionView_panel_center_X) {
-                if (arr.peekValue(attr).type == TYPE_DIMENSION)
-                    panelCentreGiven[0] = arr.getDimensionPixelSize(attr, -2);
+                if (typedAttribute.getType() == TYPE_DIMENSION)
+                    panelCentreGiven[0] = typedAttribute.getPixelValue(false);
                 else {
-                    panelCentreGiven[0] = checkFraction(arr.getFraction(attr, -1, -1, -2));
+                    panelCentreGiven[0] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
                 }
             } else if (attr == R.styleable.EmojiReactionView_panel_center_Y) {
-                if (arr.peekValue(attr).type == TYPE_DIMENSION)
-                    panelCentreGiven[1] = arr.getDimensionPixelSize(attr, -2);
+                if (typedAttribute.getType() == TYPE_DIMENSION)
+                    panelCentreGiven[1] = typedAttribute.getPixelValue(false);
                 else
-                    panelCentreGiven[1] = checkFraction(arr.getFraction(attr, -1, -1, -2));
+                    panelCentreGiven[1] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
             } else if (attr == R.styleable.EmojiReactionView_panel_radius) {
-                panelRadiusGiven = arr.getDimensionPixelSize(attr, -1);
+                panelRadiusGiven = typedAttribute.getPixelValue(false);
 
             } else if (attr == R.styleable.EmojiReactionView_panel_emoji_side) {
-                panelEmojiSide = arr.getDimensionPixelSize(attr, panelEmojiSide);
+                panelEmojiSide = typedAttribute.getPixelValue(false);
 
             } else if (attr == R.styleable.EmojiReactionView_emojis_rising_height) {
-                emojisRisingHeightGiven = checkFraction(arr.getFraction(attr, -1, -1, -2));
+                emojisRisingHeightGiven = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
             } else if (attr == R.styleable.EmojiReactionView_emojis_rising_speed) {
-                emojisRisingSpeed = arr.getDimensionPixelSize(attr, -1);
+                emojisRisingSpeed = typedAttribute.getPixelValue(false);
 
             } else if (attr == R.styleable.EmojiReactionView_emojis_rising_number) {
-                numberOfRisers = arr.getInt(attr, numberOfRisers);
+                numberOfRisers = typedAttribute.getIntegerValue();
             }
         }
         if (clickedEmojiNumber >= numberOfEmojis || clickedEmojiNumber < -1) {
             throw new IllegalArgumentException("set_emoji can't be more than number of emojis!");
         }
-
-
-
-
 
         numberOfEmojis = emojiId.size();
         emojiPixelMap = new PixelMap[numberOfEmojis];

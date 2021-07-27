@@ -1,6 +1,6 @@
 package harmonyemojireactionview.slice;
 
-import com.example.harmonyemojireactionview.ResourceTable;
+import com.example.emoji_reaction.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
 

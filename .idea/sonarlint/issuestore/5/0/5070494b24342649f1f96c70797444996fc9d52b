@@ -1,0 +1,117 @@
+
+R
+java:S1066™"/Merge this if statement with the enclosing one.(£Î‰Êşÿÿÿÿ8ñğ–Á®/
+c
+java:S2184ª"@Cast one of the operands of this integer division to a "double".(î®³‹ûÿÿÿÿ8óğ–Á®/
+b
+java:S2184¥"DCast one of the operands of this subtraction operation to a "float".(ÅÖ÷Ş8ôğ–Á®/
+b
+java:S2184¥"DCast one of the operands of this subtraction operation to a "float".(ÅÖ÷Ş8õğ–Á®/
+_
+java:S2184§"ACast one of the operands of this division operation to a "float".(­«„8õğ–Á®/
+t	java:S127Í"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ÿğ–Á®/
+K
+java:S1604Û"(Make this anonymous inner class a lambda(€ûî›úÿÿÿÿ8„ñ–Á®/
+K
+java:S1604µ"(Make this anonymous inner class a lambda(€ûî›úÿÿÿÿ8…ñ–Á®/
+U
+java:S3655˜"7Call "Optional#isPresent()" before accessing the value.(¯ïâê8‡ñ–Á®/
+‰
+java:S1488§"fImmediately return this expression instead of assigning it to the temporary variable "decodePixelMap".(Û´Éşÿÿÿÿ8‘…Á®/
+U
+java:S1128"9Remove this unused import 'ohos.global.resource.Element'.(›òÑ`8Ìó™Á®/
+]	java:S1256"<This block of commented-out lines of code should be removed.(‚ê«Ëüÿÿÿÿ8ñ–Á®/
+O
+java:S1135M"2Complete the task associated to this TODO comment.(ìş»Ç8¡ñ–Á®/
+{
+java:S2293w"YReplace the type specification in this constructor call with the diamond operator ("<>").(³çÓ¢úÿÿÿÿ8¤ñ–Á®/
+u
+java:S3776•"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(é Ñÿüÿÿÿÿ8©ñ–Á®/
+O
+java:S5261ğ"1Add explicit curly braces to avoid dangling else.(®ùÌù8µñ–Á®/
+Y	java:S125»"<This block of commented-out lines of code should be removed.(˜¯Îñ8½ñ–Á®/
+P
+java:S1135¦"2Complete the task associated to this TODO comment.(úìê8Æñ–Á®/
+K
+java:S1185¿"(Remove this method to simply inherit it.(²™«çüÿÿÿÿ8Æñ–Á®/
+e
+java:S1854Ú"BRemove this useless assignment to local variable "pixelMapHolder".(–ë¬úÿÿÿÿ8Ìñ–Á®/
+e
+java:S1854ñ"BRemove this useless assignment to local variable "pixelMapHolder".(–ë¬úÿÿÿÿ8Íñ–Á®/
+p
+java:S3776Å"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(ˆÅÓ‰8Ïñ–Á®/
+Y	java:S125Æ"<This block of commented-out lines of code should be removed.(¡ù©á8Ğñ–Á®/
+O
+java:S5261Î"1Add explicit curly braces to avoid dangling else.(á¢–¬8Ğñ–Á®/
+^	java:S125Ü"<This block of commented-out lines of code should be removed.(øëÃçúÿÿÿÿ8Óñ–Á®/
+h
+java:S2147ã"ECombine this catch with the one at line 481, which has the same body.(»÷À¬ûÿÿÿÿ8Óñ–Á®/
+c
+java:S2147å"ECombine this catch with the one at line 481, which has the same body.(ï­£Ä8Õñ–Á®/
+Y	java:S125ò"<This block of commented-out lines of code should be removed.(ä¥ûé8Öñ–Á®/
+Y	java:S125û"<This block of commented-out lines of code should be removed.(ú«¦ğ8Ùñ–Á®/
+Y	java:S125¢"<This block of commented-out lines of code should be removed.(µ½±8Üñ–Á®/
+X	java:S125¯"<This block of commented-out lines of code should be removed.(ÔÙÔm8ßñ–Á®/
+^	java:S125Ú"<This block of commented-out lines of code should be removed.(°Ã‰ùÿÿÿÿ8ãñ–Á®/
+X	java:S125à"<This block of commented-out lines of code should be removed.(ÿÃÒ.8åñ–Á®/
+¤
+java:S1186ì"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„§Á‹øÿÿÿÿ8çñ–Á®/
+¤
+java:S1186ñ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(è»ùÿÿÿÿ8èñ–Á®/
+Ÿ
+java:S1186ö"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(š¯İÜ8èñ–Á®/
+¤
+java:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†üŸ†şÿÿÿÿ8èñ–Á®/
+¤
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Õçíšÿÿÿÿÿ8éñ–Á®/
+Y	java:S125€"<This block of commented-out lines of code should be removed.(˜¯Îñ8êñ–Á®/
+Y	java:S125•"<This block of commented-out lines of code should be removed.(ŞÙî8êñ–Á®/
+^	java:S125°"<This block of commented-out lines of code should be removed.(°Ã‰ùÿÿÿÿ8ññ–Á®/
+^	java:S125¸"<This block of commented-out lines of code should be removed.(ü¦‹Øûÿÿÿÿ8ññ–Á®/
+Y	java:S125À"<This block of commented-out lines of code should be removed.(à¨êõ8ññ–Á®/
+¤
+java:S1186Ç"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„§Á‹øÿÿÿÿ8öñ–Á®/
+¤
+java:S1186Ì"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(è»ùÿÿÿÿ8÷ñ–Á®/
+Ÿ
+java:S1186Ñ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(š¯İÜ8÷ñ–Á®/
+¤
+java:S1186ã"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(†üŸ†şÿÿÿÿ8øñ–Á®/
+¤
+java:S1186è"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Õçíšÿÿÿÿÿ8øñ–Á®/
+Y	java:S125Ş"<This block of commented-out lines of code should be removed.(˜¯Îñ8ûñ–Á®/
+Y	java:S125í"<This block of commented-out lines of code should be removed.(ŞÙî8ıñ–Á®/
+Y	java:S125ü"<This block of commented-out lines of code should be removed.(Òø§å8şñ–Á®/
+^	java:S125£"<This block of commented-out lines of code should be removed.(ı¾ùéüÿÿÿÿ8†ò–Á®/
+u
+java:S3776±"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(Äú²ÿÿÿÿÿ8‡ò–Á®/
+u
+java:S3776ç"RRefactor this method to reduce its Cognitive Complexity from 79 to the 15 allowed.(‚ãæ–ûÿÿÿÿ8ò–Á®/
+N
+java:S1135á"2Complete the task associated to this TODO comment.(ûøÑ•ùÿÿÿÿ
+P
+java:S1135â"2Complete the task associated to this TODO comment.(ßœä8ò–Á®/
+Y	java:S125‹"<This block of commented-out lines of code should be removed.(˜¯Îñ8“ò–Á®/
+Y	java:S125²"<This block of commented-out lines of code should be removed.(˜¯Îñ8—ò–Á®/
+I
+java:S1172Ë"&Remove these unused method parameters.(úÚ‰Èüÿÿÿÿ8œò–Á®/
+^	java:S125Ì"<This block of commented-out lines of code should be removed.(ñ”Ôåşÿÿÿÿ8œò–Á®/
+h
+java:S2147×"ECombine this catch with the one at line 981, which has the same body.(»÷À¬ûÿÿÿÿ8 ò–Á®/
+c
+java:S2147Ù"ECombine this catch with the one at line 981, which has the same body.(ï­£Ä8 ò–Á®/
+h
+java:S2147å"ECombine this catch with the one at line 995, which has the same body.(»÷À¬ûÿÿÿÿ8¥ò–Á®/
+c
+java:S2147ç"ECombine this catch with the one at line 995, which has the same body.(ï­£Ä8¦ò–Á®/
+F	java:S108ş")Either remove or fill this block of code.(ï­£Ä8Ü‰—Á®/
+F	java:S108†")Either remove or fill this block of code.(ï­£Ä8 ´—Á®/
+M
+java:S2093ö"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ8½ò–Á®/
+F	java:S108–")Either remove or fill this block of code.(ï­£Ä8¯´—Á®/
+:
+java:S1116¤"Remove this empty statement.(ŒÉ¥¯8¯´—Á®/
+V
+java:S1481Ú"3Remove this unused "pixelMapHolder" local variable.(–ë¬úÿÿÿÿ8Ñò–Á®/
+V
+java:S1481ñ"3Remove this unused "pixelMapHolder" local variable.(–ë¬úÿÿÿÿ8Òò–Á®/

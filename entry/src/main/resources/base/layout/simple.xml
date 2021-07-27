@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    ohos:id="$+id:my_ph"
+    ohos:width="match_parent"
+    ohos:height="match_parent"
+    ohos:orientation="vertical">
+
+    <com.ritik.emojireactionlibrary.EmojiReactionView
+        app:emojis="@array/emoji"
+        ohos:id="$+id:image"
+        ohos:width="match_parent"
+        ohos:height="match_parent"
+        ohos:background_element="#125688"
+        ohos:scale_mode="clip_center"
+        ohos:image_src="$media:feed11"/>
+    <!-- android:scaleType="centerCrop" -->
+
+</DirectionalLayout>

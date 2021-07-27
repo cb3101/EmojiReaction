@@ -1,84 +1,68 @@
 package harmonyemojireactionview;
 
-import android.support.v7.widget.RecyclerView;
-import com.example.emojireactionlibrary.EmojiReactionView;
-import emojireaction.ClickInterface;
+//import android.support.v7.widget.RecyclerView;
+
+
+import com.example.emoji_reaction.ResourceTable;
+import com.ritik.emojireactionlibrary.ClickInterface;
+import com.ritik.emojireactionlibrary.EmojiReactionView;
+import ohos.agp.components.BaseItemProvider;
 import ohos.agp.components.Component;
 import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.Text;
 import ohos.agp.render.layoutboost.LayoutBoost;
 import ohos.agp.window.dialog.ToastDialog;
 import ohos.app.Context;
+import ohos.global.resource.NotExistException;
+import ohos.global.resource.WrongTypeException;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * This class is the adapter for displaying sample feeds
- */
-
-public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
+/
+public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder>, BaseItemProvider {
     private ArrayList<Feed> mDataSet;
     private Context context;
 
-    /*
-    class ViewHolder extends RecyclerView.ViewHolder {
-        Text messageTextView, timeTextView, name;
-        //        ImageView photo;
-        EmojiReactionView photo;
-
-        private ViewHolder(View view) {
-            super(view);
-            photo = view.findViewById(R.id.photoImageView);
-            messageTextView = view.findViewById(R.id.messageTextView);
-
-            timeTextView = view.findViewById(R.id.time);
-            name = view.findViewById(R.id.name);
-        }
+    FeedAdapter(ArrayList<Feed> myDataSet) {
+        mDataSet = myDataSet;
     }
-     */
 
     class ViewHolder extends RecyclerView.ViewHolder {
         Text messageTextView, timeTextView, name;
-        //        ImageView photo;
         EmojiReactionView photo;
         private ViewHolder(Component view) {
             super(view);
-            photo = view.findComponentById(ResourceTable.id.photoImageView);
-            messageTextView = view.findComponentById(R.id.messageTextView);
 
+            photo = view.findComponentById(ResourceTable.R.id.photoImageView);
+            messageTextView = view.findComponentById(R.id.messageTextView);
             timeTextView = view.findComponentById(R.id.time);
             name = view.findComponentById(R.id.name);
         }
     }
 
 
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    FeedAdapter(ArrayList<Feed> myDataSet) {
-        mDataSet = myDataSet;
-    }
-
-    // Create new views (invoked by the layout manager)
-    @NotNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NotNull ComponentContainer parent,
-                                         int viewType) {
-        // create a new view
-//        Log.i("point fa50","create");
-        Component v = LayoutBoost.inflate(parent.getContext(),R.layout.feed, parent, false);
+    /*
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.feed, parent, false);
         this.context = parent.getContext();
         return new ViewHolder(v);
     }
-    //TODO open and close circle anim on view creation
+    */
+    @NotNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NotNull ComponentContainer parent, int viewType) {
+        Component v = LayoutBoost.inflate(parent.getContext(),ResourceTable.Layout_feed, parent, false);
+        this.context = parent.getContext();
+        return new ViewHolder(v);
+    }
+
 
     @Override
-    public void onBindViewHolder(@NotNull final ViewHolder holder, final int position) {
-        // - get element from your dataSet at this position
-        // - replace the contents of the view with that element
-//        Log.i("point fa50","bind");
+    public void onBindViewHolder(@NotNull final ViewHolder holder, final int position) throws NotExistException, WrongTypeException, IOException {
         final Feed feed = mDataSet.get(position);
-        holder.photo.setImageResource(feed.getPicAddress());
+        holder.photo.setPixelMap(feed.getPicAddress());
         holder.photo.setHomeEmojiVisible();
         holder.photo.setOnEmojiClickListener(new ClickInterface() {
             @Override
@@ -115,8 +99,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
             @Override
             public void onEmojiUnclicked(int emojiIndex, int x, int y) {
-//                if (x != -1)
-//                    Toast.makeText(context, "Emoji " + emojiIndex +" removed", Toast.LENGTH_SHORT).show();
+//
             }
         });
 
@@ -136,9 +119,8 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
     }
 
-    // Return the size of your dataSet (invoked by the layout manager)
     @Override
-    public int getItemCount() {
+    public int getCount() {
         return mDataSet.size();
     }
 

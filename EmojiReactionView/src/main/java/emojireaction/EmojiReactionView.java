@@ -1,27 +1,5 @@
 package emojireaction;
 
-/*
-import android.content.res.TypedArray;
-import android.graphics.drawable.ColorDrawable;
-import android.view.MotionEvent;
-import android.view.animation.AccelerateInterpolator;
-import static android.util.TypedValue.TYPE_DIMENSION;
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PathMeasure;
-import android.graphics.Rect;
-import android.widget.ImageView;
-*/
 
 import com.example.amplify.ResourceTable;
 import ohos.agp.animation.Animator;
@@ -41,10 +19,7 @@ import ohos.media.image.PixelMap;
 import ohos.media.image.common.Size;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 import static ohos.agp.animation.Animator.CurveType.ACCELERATE;
 import static ohos.agp.render.BlendMode.MULTIPLY;
@@ -134,7 +109,7 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
     // raw height of the rising emojis(to start disappearing) given by user
     private float emojisRisingHeightGiven = -2;
     // Arraylist storing properties of rising emojis
-    private ArrayList<com.example.emojireactionview.RisingEmoji> risingEmojis = new ArrayList<>();
+    private ArrayList<RisingEmoji> risingEmojis = new ArrayList<>();
     // Total number of emojis rising
     private int numberOfRisers = 24;
     // Boolean to check if emojis are rising
@@ -144,7 +119,7 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
     // Variable to count number of emojis started disappearing
     private int fading = 0;
     // is the emojis started disappearing
-    private boolean startFading = false;bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+    private boolean startFading = false;
 
 
     public EmojiReactionView(Context context) throws NotExistException, WrongTypeException, IOException {
@@ -168,7 +143,9 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
 
         final int N = attrSet.getLength();
         for (int i = 0; i < N; ++i) {
-            Attr attr = attrSet.getAttr(i).get();
+            Optional<Attr> optionalAttr = attrSet.getAttr(i);
+            if(!optionalAttr.isPresent()){continue;}
+            Attr attr = optionalAttr.get();
             TypedAttribute typedAttribute = (TypedAttribute) attr;
 
             if (attr.getName().equals("emojis")) {
@@ -180,46 +157,44 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
                 }
                 numberOfEmojis = emojiId.size();
                 resourceArray.recycle();
-
-            } else if (attr.getName().equals("set_emoji")) {
-                clickedEmojiNumber = typedAttribute.getIntegerValue();
-            } else if (attr.getIntegerValue() != 0) {
+            }
+            else if (attr.getName().equals("set_emoji")) {
                 clickedEmojiNumber = typedAttribute.getIntegerValue();
 
             } else if (attr.getName().equals("home_Center_X")) {
                 homeCenter[0] = typedAttribute.getPixelValue(false);
-            } else if (attr == R.styleable.EmojiReactionView_home_Center_X) {
+            } else if (attr.getName().equals("home_Center_X")) {
                 homeCenter[0] = typedAttribute.getPixelValue(false);
 
-            } else if (attr == R.styleable.EmojiReactionView_home_Center_Y) {
+            } else if (attr.getName().equals("home_Center_Y")) {
                 homeCenterYGiven = typedAttribute.getPixelValue(false);
 
-            } else if (attr == R.styleable.EmojiReactionView_home_side) {
+            } else if (attr.getName().equals("home_side")) {
                 homeSide = typedAttribute.getPixelValue(false);
 
-            } else if (attr == R.styleable.EmojiReactionView_panel_center_X) {
-                if (typedAttribute.getType() == TYPE_DIMENSION)
+            } else if (attr.getName().equals("panel_center_X")) {
+                if (typedAttribute.getType() == TypedAttribute.FLOAT_ATTR)
                     panelCentreGiven[0] = typedAttribute.getPixelValue(false);
                 else {
                     panelCentreGiven[0] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
                 }
-            } else if (attr == R.styleable.EmojiReactionView_panel_center_Y) {
-                if (typedAttribute.getType() == TYPE_DIMENSION)
+            } else if (attr.getName().equals("panel_center_Y")) {
+                if (typedAttribute.getType() == TypedAttribute.FLOAT_ATTR)
                     panelCentreGiven[1] = typedAttribute.getPixelValue(false);
                 else
                     panelCentreGiven[1] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
-            } else if (attr == R.styleable.EmojiReactionView_panel_radius) {
+            } else if (attr.getName().equals("panel_radius")) {
                 panelRadiusGiven = typedAttribute.getPixelValue(false);
 
-            } else if (attr == R.styleable.EmojiReactionView_panel_emoji_side) {
+            } else if (attr.getName().equals("panel_emoji_side")) {
                 panelEmojiSide = typedAttribute.getPixelValue(false);
 
-            } else if (attr == R.styleable.EmojiReactionView_emojis_rising_height) {
+            } else if (attr.getName().equals("emojis_rising_height")) {
                 emojisRisingHeightGiven = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
-            } else if (attr == R.styleable.EmojiReactionView_emojis_rising_speed) {
+            } else if (attr.getName().equals("emojis_rising_speed")) {
                 emojisRisingSpeed = typedAttribute.getPixelValue(false);
 
-            } else if (attr == R.styleable.EmojiReactionView_emojis_rising_number) {
+            } else if (attr.getName().equals("emojis_rising_number")) {
                 numberOfRisers = typedAttribute.getIntegerValue();
             }
         }

@@ -5,22 +5,32 @@
     ohos:height="match_parent"
     ohos:width="match_parent"
     ohos:orientation="vertical">
+
     <DirectionalLayout
         ohos:height="match_content"
         ohos:width="match_parent"
         ohos:orientation="vertical">
-        <com.example.amplify.lib.prompt.DefaultLayoutPromptView
-            ohos:id="$+id:default_layout_prompt_view_no_customization"
+
+        <emojireaction.EmojiReactionView
+            ohos:id="$+id:emojireactionview_attributes_config"
             ohos:width="match_parent"
             ohos:height="match_content"
-            ohos:bottom_margin="16fp"/>
 
-        <com.example.amplify.lib.prompt.DefaultLayoutPromptView
-            ohos:id="$+id:default_layout_prompt_view_code_config"
-            ohos:width="match_parent"
-            ohos:height="match_content"
-            ohos:bottom_margin="16fp"/>
+            app:emojis="reference"
+            app:set_emoji="integer"
 
+            app:home_Center_X="dimension"
+            app:home_Center_Y="dimension"
+            app:home_side="dimension"
+
+            app:panel_center_X="dimension|fraction"
+            app:panel_center_Y="dimension|fraction"
+            app:panel_radius="dimension"
+            app:panel_emoji_side="dimension"
+
+            app:emojis_rising_height="fraction"
+            app:emojis_rising_speed="dimension"
+            app:emojis_rising_number="integer"/>
 
     </DirectionalLayout>
 

@@ -176,13 +176,14 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
                 if (typedAttribute.getType() == TypedAttribute.FLOAT_ATTR)
                     panelCentreGiven[0] = typedAttribute.getPixelValue(false);
                 else {
-                    panelCentreGiven[0] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
+//                    panelCentreGiven[0] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
                 }
             } else if (attr.getName().equals("panel_center_Y")) {
                 if (typedAttribute.getType() == TypedAttribute.FLOAT_ATTR)
                     panelCentreGiven[1] = typedAttribute.getPixelValue(false);
-                else
-                    panelCentreGiven[1] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
+                else {
+//                    panelCentreGiven[1] = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
+                }
             } else if (attr.getName().equals("panel_radius")) {
                 panelRadiusGiven = typedAttribute.getPixelValue(false);
 
@@ -190,7 +191,7 @@ public class EmojiReactionView extends Image implements Component.DrawTask {
                 panelEmojiSide = typedAttribute.getPixelValue(false);
 
             } else if (attr.getName().equals("emojis_rising_height")) {
-                emojisRisingHeightGiven = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
+//                emojisRisingHeightGiven = checkFraction(typedArray.getFraction(attr, -1, -1, -2));
             } else if (attr.getName().equals("emojis_rising_speed")) {
                 emojisRisingSpeed = typedAttribute.getPixelValue(false);
 
